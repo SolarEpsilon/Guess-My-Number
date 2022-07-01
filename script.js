@@ -1,29 +1,12 @@
 'use strict';
-// debugger;
 
-/*
-document.querySelector(`.message`);
-
-console.log(document.querySelector(`.message`).textContent);
-
-document.querySelector(`.message`).textContent = `🎉 Correct Number!`;
-
-// console.log(document.querySelector(`.message`).textContent);
-
-document.querySelector(`.number`).textContent = 13;
-document.querySelector(`.score`).textContent = 10;
-
-document.querySelector(`.guess`).value = 23;
-console.log(document.querySelector(`.guess`).value);
-*/
-
-// Create secret number between 1-20
+// Create secret number between 1 and 20:
 let secretNumber = Math.trunc(Math.random() * 20) + 1;
 
 let score = 20;
 let highscore = 0;
 
-// Document.querySlector function:
+// Create function to display a given text, then change the text content of our ".message" HTML element to that text:
 const displayMessage = function (message) {
   document.querySelector(`.message`).textContent = message;
 };
@@ -31,13 +14,11 @@ const displayMessage = function (message) {
 // Create click listen event for "guess" button:
 document.querySelector(`.check`).addEventListener(`click`, function () {
   let guess = Number(document.querySelector(`.guess`).value);
-  console.log(guess, typeof guess);
 
-  // When there is something that isn't a number typed in:
+  // If input is not a number:
   if (!guess) {
     displayMessage(`⛔️ No Number!`);
-
-    // When player wins:
+    // If player wins:
   } else if (guess === secretNumber) {
     displayMessage(`🎉 Correct Number!`);
     document.querySelector(`.number`).textContent = secretNumber;
